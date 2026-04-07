@@ -22,7 +22,7 @@ You can add this above it:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/YOUR-USERNAME/YOUR-REPO.git
+   https://github.com/soniceggman419-ship-it/random-number-generator-AI-vipe-coated.git
    cd YOUR-REPO
    node server.js
    http://localhost:3000
