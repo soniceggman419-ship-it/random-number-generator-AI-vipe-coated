@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body style="background:black;color:lime;text-align:center;font-family:monospace">
+
+<h2>Unique Number Generator</h2>
+
+<input id="output" style="width:80%;padding:10px" readonly>
+
+<br><br>
+
+<button onclick="generate()">Generate</button>
+<button onclick="copy()">Copy</button>
+
+<script>
+async function generate() {
+  try {
+    const res = await fetch("http://localhost:3000/generate");
+
+    if (!res.ok) {
+      throw new Error("Server responded with error");
+    }
+
+    const text = await res.text();
+    document.getElementById("output").value = text;
+
+  } catch (err) {
+    alert("Error: " + err.message);
+    console.error(err);
+  }
+}
+
+function copy() {
+  const input = document.getElementById("output");
+  input.select();
+  document.execCommand("copy");
+}
+</script>
+
+</body>
+</html>
