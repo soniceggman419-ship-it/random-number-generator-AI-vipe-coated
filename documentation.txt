@@ -1,0 +1,45 @@
+API Documentation
+
+Base URL: http://localhost:3000
+
+Note: Depending on how you are using this API, the base URL may need to
+be changed. - If you are running it locally, use:
+http://localhost:3000 - If it is hosted on a server or separate website,
+replace this with that URL.
+
+Endpoints:
+
+1.  Generate Unique Number GET /generate
+
+Optional: GET /generate?provider=https://example.com/api
+
+Response: A unique 50-digit number
+
+2.  Generate Unique Filename GET /filename?ext=.txt
+
+Parameters: - ext (optional): file extension (default: .txt) - provider
+(optional): external API URL
+
+Examples: GET /filename?ext=.json GET
+/filename?ext=.json&provider=https://example.com/filegen
+
+Response: Random unique filename (letters + numbers + extension)
+
+Usage Examples:
+
+JavaScript: const res = await
+fetch(“http://localhost:3000/filename?ext=.js”); const data = await
+res.text(); console.log(data);
+
+Python: import requests res =
+requests.get(“http://localhost:3000/filename?ext=.py”) print(res.text)
+
+Bash: curl “http://localhost:3000/filename?ext=.txt”
+
+Java: URL url = new URL(“http://localhost:3000/filename?ext=.java”);
+BufferedReader in = new BufferedReader(new
+InputStreamReader(url.openStream())); System.out.println(in.readLine());
+
+Notes: - API returns plain text - Filenames and numbers are unique -
+External providers must return plain text - Local storage uses
+numbers.txt and filenames.txt
